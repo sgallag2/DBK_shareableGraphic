@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <title>Graphics Generator</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+
+<div>
+        
+    <form>
+            <label>Quote:</label>
+            <textarea id="textarea1" rows="1" cols="50"></textarea>
+    </form>
+    
+    <form>
+            <label>Attribution:</label>
+            <textarea id="textarea2" rows="1" cols="45"></textarea>
+    </form>
+
+    <form><input type="text" id="fontSize" size= "50" placeholder="Font-size"/></form>
+    <form><input type="text" id="credit" size= "50" placeholder="Designer's name"/></form>
+    
+
+<form id="twoButtons">
+        <input type="button" id="goButton" value="Generate graph"/>
+        <input type="button" id="resetButton" value=" Reset "/>
+</form>
+        
+        <p>Your graph will appear below:</p>
+        
+        <svg class="canvas"></svg>
+</div>           
+
+    <script type="text/javascript">
+
+    
+    
+    $(document).ready(function() {
+        $('#goButton').click(function() {
+            var quote = $("#textarea1").val();
+            
+      
+            var creditLine = $("#credit").val();
+            var data = quote;
+            
+
+       
+            
+var width = 800,
+    height = (400);
+
+var margin = {top: 100, right: 30, bottom: 40, left: 60};
+
+var data = [{
+      x: 20,
+      y: 30,
+      text: "Hi"
+    }, {
+      x: 100,
+      y: 200,
+      text: "bye"
+    }];
+
+var canvas = d3.select(".canvas")
+        .attr("width", width)
+        .attr("height", height)
+        .style("border", "1px solid black")
+        .attr("fill", "#E51937")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        
+var rectangle = canvas.append("rect")
+.attr("width",width)
+.attr("height",height)
+.attr("rx",0)
+.attr("x",0)
+.attr("y",0);
+
+
+var words = canvas.append("foreignObject")
+    .attr("x", 400)
+    .attr("y", 20)
+    .attr("width", 350)
+    .attr("height", 290)
+  .append("xhtml:body")
+    .style("font", "45px 'FuturaHeavy'")
+    .html(quote);
+
+var image = canvas.append("rect")
+.attr("width",350)
+.attr("height",290)
+.style("border", "1px solid black")
+.attr("rx",0)
+.attr("x",30)
+.attr("class","title")
+.attr("y",20);
+    
+var line = canvas.append("line")
+.attr("x1", 0)
+.attr("y1", 320)
+.attr("x2",width)
+.attr("y2",320)
+.attr("stroke", "black")
+.attr("stroke-width", 1);
+
+var whiteBox = canvas.append("rect")
+.attr("width",310)
+.attr("height",70)
+.style("border", "1px solid black")
+.attr("rx",0)
+.attr("x",10)
+.attr("class","white")
+.attr("y",325);
+
+var logo = canvas.append("svg:image")
+   .attr('x',20)
+   .attr('y',330)
+   .attr('width', 70)
+   .attr('height', 60)
+   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHQ1JKeTNNM2lYS2M/");
+
+canvas.append("text")
+  .text("DESIGN")
+  .attr("x", 282)
+  .attr("y", 378)
+  .attr("class","design");
+  
+  canvas.append("text")
+  .text("Graphic by " + creditLine + "/The Diamondback")
+  .attr("x", 760)
+  .attr("y", 365)
+  .attr("class","credit");
+
+
+        });
+        
+        $('#resetButton').click(function() {
+        $("textarea").val('');
+        $("input").val('');
+        });
+    
+                
+});
+    </script>
+
+</body>
+</html>

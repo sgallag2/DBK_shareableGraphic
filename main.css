@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Solano";
+    src: url("fonts/SolanoGothicMVB-Md.otf");
+}
+
+@font-face{
+  font-family: "SolanoBoldCap";
+  src: url("fonts/SolanoGothicMVB-SbCap.otf");
+}
+
+@font-face{
+  font-family: "SolanoLight";
+  src: url("fonts/SolanoGothicMVB-Lt.otf")
+}
+
+@font-face{
+  font-family:"Futura";
+  src: url("fonts/FuturaLT-Bold.ttf")
+}
+
+@font-face{
+    font-family:"FuturaHeavy";
+    src: url("fonts/FuturaLT.ttf")
+}
+
+form{
+  margin-top:1%;
+}
+
+#twoButtons{
+  text-align: center;
+}
+
+.canvas text {
+  fill: white;
+  font: 42px 'Solano', sans-serif;
+  text-anchor: end;
+}
+
+
+.canvas .title {
+  font-family:"SolanoBoldCap", serif;
+  font-size: 62px;
+  fill: black;
+}
+
+.canvas .white {
+  font-family:"SolanoBoldCap", serif;
+  font-size: 62px;
+  fill: rgba(255,255,255,0.6);
+}
+
+.canvas .design {
+  font-family:"Futura", serif;
+  font-size: 48px;
+  fill: black;
+}
+
+.canvas .credit {
+  font-family:"SolanoLight", serif;
+  font-size: 22px;
+  fill: black;
+}
