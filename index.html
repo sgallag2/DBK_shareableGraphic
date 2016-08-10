@@ -24,9 +24,15 @@
             <textarea id="textarea2" rows="1" cols="45"></textarea>
     </form>
     
-    <form><input type="text" id="imageLocalAddress" size= "50" placeholder="Image local address"/></form>
+    <form>
+        <label>Image local address:</label>
+        <input type="text" id="imageLocalAddress" size= "50"/>
+    </form>
 
-    <form><input type="text" id="credit" size= "50" placeholder="Designer's name"/></form>
+    <form>
+        <label>Designer's name:</label>
+        <input type="text" id="credit" size= "50"/>
+    </form>
     
 
 <form id="twoButtons">
@@ -89,7 +95,7 @@ var attribution = canvas.append("foreignObject")
     .attr("height", 60)
   .append("xhtml:body")
     .style("font", "30px 'FuturaHeavy'")
-    .html("Ñ " + attribute);
+    .html("- " + attribute);
 
 var image = canvas.append("rect")
 .attr("width",400)
