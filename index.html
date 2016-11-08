@@ -23,14 +23,20 @@
             <label>Attribution:</label>
             <textarea id="textarea2" rows="1" cols="45"></textarea>
     </form>
+    
+    <form>
+        <label>Image local address:</label>
+        <input type="text" id="imageLocalAddress" size= "50"/>
+    </form>
 
-    <form><input type="text" id="fontSize" size= "50" placeholder="Font-size"/></form>
-    <form><input type="text" id="credit" size= "50" placeholder="Designer's name"/></form>
+    <form>
+        <label>Designer's name:</label>
+        <input type="text" id="credit" size= "50"/>
+    </form>
     
 
 <form id="twoButtons">
-        <input type="button" id="goButton" value="Generate graph"/>
-        <input type="button" id="resetButton" value=" Reset "/>
+        <input type="button" id="goButton" value="Generate graphic"/>
 </form>
         
         <p>Your graph will appear below:</p>
@@ -45,28 +51,17 @@
     $(document).ready(function() {
         $('#goButton').click(function() {
             var quote = $("#textarea1").val();
-            
+            var attribute = $("#textarea2").val();
       
             var creditLine = $("#credit").val();
             var data = quote;
             
-
        
             
 var width = 800,
     height = (400);
 
 var margin = {top: 100, right: 30, bottom: 40, left: 60};
-
-var data = [{
-      x: 20,
-      y: 30,
-      text: "Hi"
-    }, {
-      x: 100,
-      y: 200,
-      text: "bye"
-    }];
 
 var canvas = d3.select(".canvas")
         .attr("width", width)
@@ -89,25 +84,34 @@ var words = canvas.append("foreignObject")
     .attr("width", 350)
     .attr("height", 290)
   .append("xhtml:body")
-    .style("font", "45px 'FuturaHeavy'")
-    .html(quote);
+    .style("font", "35px 'FuturaHeavy'")
+    .html('"' + quote + '"');
+    
+var attribution = canvas.append("foreignObject")
+    .attr("x", 500)
+    .attr("y", 250)
+    .attr("width", 350)
+    .attr("height", 60)
+  .append("xhtml:body")
+    .style("font", "30px 'FuturaHeavy'")
+    .html("- " + attribute);
 
 var image = canvas.append("rect")
-.attr("width",350)
-.attr("height",290)
+.attr("width",400)
+.attr("height",400)
 .style("border", "1px solid black")
 .attr("rx",0)
-.attr("x",30)
+.attr("x",0)
 .attr("class","title")
-.attr("y",20);
+.attr("y",0);
     
-var line = canvas.append("line")
-.attr("x1", 0)
-.attr("y1", 320)
-.attr("x2",width)
-.attr("y2",320)
-.attr("stroke", "black")
-.attr("stroke-width", 1);
+var mainImage= canvas.append("svg:image")
+   .attr('x',0)
+   .attr('y',0)
+   .attr('width', 400)
+   .attr('height', 400)
+   .attr("xlink:href","http://gdurl.com/t2fF");
+        
 
 var whiteBox = canvas.append("rect")
 .attr("width",310)
@@ -123,7 +127,7 @@ var logo = canvas.append("svg:image")
    .attr('y',330)
    .attr('width', 70)
    .attr('height', 60)
-   .attr("xlink:href","https://googledrive.com/host/0B8YsgIv2mNlHQ1JKeTNNM2lYS2M/");
+   .attr("xlink:href","http://gdurl.com/oihN");
 
 canvas.append("text")
   .text("DESIGN")
